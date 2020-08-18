@@ -1,0 +1,1362 @@
+{
+    "@context": "http://schema.org/",
+    "@type": "DataFeed",
+    "dataFeedElement": [
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/222712",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "genre": [
+                "Concert/Special Events"
+            ],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "image": [
+                {
+                    "@type": "ImageObject",
+                    "url": "https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/masterrepository/Fandango/222712/.Fathom Placeholder.jpg"
+                }
+            ],
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "Howl’s Moving Castle – Studio Ghibli Fest 2020"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/howl’s-moving-castle-–-studio-ghibli-fest-2020-222712/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/222713",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "genre": [
+                "Concert/Special Events"
+            ],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "image": [
+                {
+                    "@type": "ImageObject",
+                    "url": "https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/masterrepository/Fandango/222713/.Fathom Placeholder.jpg"
+                }
+            ],
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "Kiki’s Delivery Service– Studio Ghibli Fest 2020"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/kiki’s-delivery-service–-studio-ghibli-fest-2020-222713/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/222714",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "genre": [
+                "Concert/Special Events"
+            ],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "image": [
+                {
+                    "@type": "ImageObject",
+                    "url": "https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/masterrepository/Fandango/222714/.Fathom Placeholder.jpg"
+                }
+            ],
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "Princess Mononoke – Studio Ghibli Fest 2020"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/princess-mononoke-–-studio-ghibli-fest-2020-222714/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/222715",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "genre": [
+                "Concert/Special Events"
+            ],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "image": [
+                {
+                    "@type": "ImageObject",
+                    "url": "https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/masterrepository/Fandango/222715/.Fathom Placeholder.jpg"
+                }
+            ],
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "Spirited Away – Studio Ghibli Fest 2020"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/spirited-away-–-studio-ghibli-fest-2020-222715/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/222764",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "genre": [
+                "Concert/Special Events"
+            ],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "Royal Opera House: Elektra"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/royal-opera-house:-elektra-222764/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/222777",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "genre": [
+                "Comedy"
+            ],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "image": [
+                {
+                    "@type": "ImageObject",
+                    "url": "https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/masterrepository/Fandango/222777/THN_2764x4096_w1.jpg"
+                }
+            ],
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "The High Note (2020)"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/the-high-note-(2020)-222777/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/222810",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "image": [
+                {
+                    "@type": "ImageObject",
+                    "url": "https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/masterrepository/Fandango/222810/Human Capital_Theatrical Art.jpg"
+                }
+            ],
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "Human Capital (2020)"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/human-capital-(2020)-222810/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/222813",
+            "@type": "Movie",
+            "actor": [
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Anna Kendrick"
+                    },
+                    "charcterName": "Poppy"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Justin Timberlake"
+                    },
+                    "charcterName": "Branch"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "J Balvin"
+                    },
+                    "charcterName": "Tressilo"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Rachel Bloom"
+                    },
+                    "charcterName": "Queen Barb"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Flula Borg"
+                    },
+                    "charcterName": "Dickory"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Kelly Clarkson"
+                    },
+                    "charcterName": "Delta Dawn"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "James Corden"
+                    },
+                    "charcterName": "Biggie"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Ester Dean"
+                    },
+                    "charcterName": "Legsly"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Jamie Dornan"
+                    },
+                    "charcterName": "Chaz"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Gustavo Dudamel"
+                    },
+                    "charcterName": "Trollzart"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Ron Funches"
+                    },
+                    "charcterName": "Cooper"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Caroline Hjelt"
+                    },
+                    "charcterName": "Chenille"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Aino Jawo"
+                    },
+                    "charcterName": "Satin"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Kunal Nayyar"
+                    },
+                    "charcterName": "Guy Diamond"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Ozzy Osbourne"
+                    },
+                    "charcterName": "King Thrash"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Anderson .Paak"
+                    },
+                    "charcterName": "Prince D"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Anthony Ramos"
+                    },
+                    "charcterName": "King Trollex"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Sam Rockwell"
+                    },
+                    "charcterName": "Hickory"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Karan Soni"
+                    },
+                    "charcterName": "Riff"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Kenan Thompson"
+                    },
+                    "charcterName": "Tiny Diamond"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Charlyne Yi"
+                    },
+                    "charcterName": "Pennywhistle"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "George Clinton"
+                    },
+                    "charcterName": "King Quincy"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Mary J. Blige"
+                    },
+                    "charcterName": "Queen Essence"
+                }
+            ],
+            "author": [],
+            "director": [],
+            "genre": [
+                "Action/Adventure",
+                "Animated",
+                "Comedy"
+            ],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": "15523862"
+            },
+            "image": [
+                {
+                    "@type": "ImageObject",
+                    "url": "https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/masterrepository/Fandango/222813/TWT_Adv1Sheet_Guitar_RGB_4.jpg"
+                }
+            ],
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "Trolls World Tour 3D (2020)"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/trolls-world-tour-3d-(2020)-222813/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/222899",
+            "@type": "Movie",
+            "actor": [
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Peter Sellers"
+                    },
+                    "charcterName": "Auguste Topaze"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Nadia Gray"
+                    },
+                    "charcterName": "Suzy"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Herbert Lom"
+                    },
+                    "charcterName": "Castel Benac"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Leo McKern"
+                    },
+                    "charcterName": "Muche"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Martita Hunt"
+                    },
+                    "charcterName": "Baroness"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Michael Gough"
+                    },
+                    "charcterName": "Tamise"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Anne Leon"
+                    },
+                    "charcterName": "Mrs. Tamise"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Billie Whitelaw"
+                    },
+                    "charcterName": "Ernestine"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Joan Sims"
+                    },
+                    "charcterName": "Colette"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "John Neville"
+                    },
+                    "charcterName": "Roger"
+                }
+            ],
+            "author": [],
+            "director": [],
+            "genre": [
+                "Comedy",
+                "Drama"
+            ],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": "91602"
+            },
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "Mr. Topaze"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/mr.-topaze-222899/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/222902",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "genre": [
+                "Family",
+                "Sci-Fi/Fantasy",
+                "Suspense/Thriller"
+            ],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "image": [
+                {
+                    "@type": "ImageObject",
+                    "url": "https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/masterrepository/Fandango/222902/MaxWinslow with logos lr.jpg"
+                }
+            ],
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "Max Winslow and the House of Secrets"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/max-winslow-and-the-house-of-secrets-222902/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/223011",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "Capitolfest 18"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/capitolfest-18-223011/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/223025",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "genre": [
+                "Drama",
+                "Music/Performing Arts"
+            ],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "image": [
+                {
+                    "@type": "ImageObject",
+                    "url": "https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/masterrepository/Fandango/223025/WALZ_WEB_POSTER.jpg"
+                }
+            ],
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "We Are Little Zombies"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/we-are-little-zombies-223025/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/223029",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "genre": [
+                "Animated",
+                "Family"
+            ],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "image": [
+                {
+                    "@type": "ImageObject",
+                    "url": "https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/masterrepository/Fandango/223029/StarDogTurbocat Final.jpg"
+                }
+            ],
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "StarDog and TurboCat"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/stardog-and-turbocat-223029/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/223030",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "genre": [
+                "Documentary"
+            ],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "image": [
+                {
+                    "@type": "ImageObject",
+                    "url": "https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/masterrepository/Fandango/223030/JOHNLEWISGOODTROUBLE_R10_32_Fin_V1_Digital.jpg"
+                }
+            ],
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "John Lewis: Good Trouble"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/john-lewis:-good-trouble-223030/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/223048",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "genre": [
+                "Suspense/Thriller"
+            ],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "image": [
+                {
+                    "@type": "ImageObject",
+                    "url": "https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/masterrepository/Fandango/223048/UNHINGED_Final OneSheet_27x40_Theatrical_1sheet_July1_FINAL.jpg"
+                }
+            ],
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "Unhinged (2020)"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/unhinged-(2020)-223048/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/223055",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "genre": [
+                "Drama"
+            ],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "image": [
+                {
+                    "@type": "ImageObject",
+                    "url": "https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/masterrepository/Fandango/223055/Chance Poster.jpg"
+                }
+            ],
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "Chance (2020)"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/chance-(2020)-223055/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/223071",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "genre": [
+                "Action/Adventure",
+                "Suspense/Thriller"
+            ],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "image": [
+                {
+                    "@type": "ImageObject",
+                    "url": "https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/masterrepository/Fandango/223071/Becky_1Sht_US.jpg"
+                }
+            ],
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "Becky (2020)"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/becky-(2020)-223071/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/223072",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "genre": [
+                "Drama"
+            ],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "image": [
+                {
+                    "@type": "ImageObject",
+                    "url": "https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/masterrepository/Fandango/223072/MissJuneteenth_Web.jpg"
+                }
+            ],
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "Miss Juneteenth"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/miss-juneteenth-223072/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/223073",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "image": [
+                {
+                    "@type": "ImageObject",
+                    "url": "https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/masterrepository/Fandango/223073/Relic2020.jpg"
+                }
+            ],
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "Relic (2020)"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/relic-(2020)-223073/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/223091",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "genre": [
+                "Suspense/Thriller"
+            ],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "image": [
+                {
+                    "@type": "ImageObject",
+                    "url": "https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/masterrepository/Fandango/223091/Infamous_PrintPoster_03.jpg"
+                }
+            ],
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "Infamous (2020)"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/infamous-(2020)-223091/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/223100",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "genre": [
+                "Action/Adventure",
+                "Drama"
+            ],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "image": [
+                {
+                    "@type": "ImageObject",
+                    "url": "https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/masterrepository/Fandango/223100/TheOutpost_HiRes.jpg"
+                }
+            ],
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "The Outpost (2020)"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/the-outpost-(2020)-223100/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/223101",
+            "@type": "Movie",
+            "actor": [
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Adam LeClair"
+                    },
+                    "charcterName": "David Richmond"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Stefanie Butler"
+                    },
+                    "charcterName": "Rachel Malone"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Steve Lewis"
+                    },
+                    "charcterName": "Albert Reitner"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Anna Myatt"
+                    },
+                    "charcterName": "Ashley Johnson"
+                },
+                {
+                    "@type": "PerformanceRole",
+                    "actor": {
+                        "@type": "Person",
+                        "name": "Ashley-Lauren Elrod"
+                    },
+                    "charcterName": "Caitlin"
+                }
+            ],
+            "author": [],
+            "director": [],
+            "genre": [
+                "Horror",
+                "Suspense/Thriller"
+            ],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "image": [
+                {
+                    "@type": "ImageObject",
+                    "url": "https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/masterrepository/Fandango/223101/Followed One Sheet FOR WEB 1000x1481.jpg"
+                }
+            ],
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "Followed (2020)"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/followed-(2020)-223101/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/223116",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "image": [
+                {
+                    "@type": "ImageObject",
+                    "url": "https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/masterrepository/Fandango/223116/hm-2.jpg"
+                }
+            ],
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "Hairmetal Shotgun Zombie Massacre: The Movie"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/hairmetal-shotgun-zombie-massacre:-the-movie-223116/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/223120",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "genre": [
+                "Documentary"
+            ],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": "16668817"
+            },
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "Ella Fitzgerald: Just One of Those Things"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/ella-fitzgerald:-just-one-of-those-things-223120/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/223123",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "genre": [
+                "Comedy",
+                "Romance"
+            ],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "image": [
+                {
+                    "@type": "ImageObject",
+                    "url": "https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/masterrepository/Fandango/223123/the-broken-hearts-gallery-BHG_OnLine_6072x9000_FNL_02_rgb.jpg"
+                }
+            ],
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "The Broken Hearts Gallery"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/the-broken-hearts-gallery-223123/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/223162",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "Skyman"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/skyman-223162/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/223170",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "THE CLOCKMAKER OF ST. PAUL (1974)/BETTY (1992)"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/the-clockmaker-of-st.-paul-(1974)/betty-(1992)-223170/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/223174",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "genre": [
+                "Sci-Fi/Fantasy"
+            ],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "image": [
+                {
+                    "@type": "ImageObject",
+                    "url": "https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/masterrepository/Fandango/223174/Archive_Poster_2764x4096.jpg"
+                }
+            ],
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "Archive (2020)"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/archive-(2020)-223174/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/223181",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "Easy Does It"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/easy-does-it-223181/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/223182",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "Double Feature: Black Panther / Empire Strikes Back"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/double-feature:-black-panther-/-empire-strikes-back-223182/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/223184",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "Double Feature: Empire Strikes Back / Inside Out"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/double-feature:-empire-strikes-back-/-inside-out-223184/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/223187",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "Double Feature: Bad Boys for Life / Deadshot"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/double-feature:-bad-boys-for-life-/-deadshot-223187/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/223188",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "Double Feature: Empire Strikes Back / Black Panther"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/double-feature:-empire-strikes-back-/-black-panther-223188/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/223189",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "Double Feature: Jurassic Park / Invisible Man"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/double-feature:-jurassic-park-/-invisible-man-223189/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/223190",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "Double Feature: Trolls World Tour / Inside Out"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/double-feature:-trolls-world-tour-/-inside-out-223190/movie-overview"
+        },
+        {
+            "@context": "http://schema.org",
+            "@id": "https://www.fandango.com/movies/223191",
+            "@type": "Movie",
+            "actor": [],
+            "author": [],
+            "director": [],
+            "genre": [
+                "Action/Adventure",
+                "Drama"
+            ],
+            "identifier": {
+                "@type": "PropertyValue",
+                "propertyID": "TMS_ROOT_ID",
+                "value": ""
+            },
+            "image": [
+                {
+                    "@type": "ImageObject",
+                    "url": "https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/masterrepository/Fandango/223191/forceofnature-posterart.jpg"
+                }
+            ],
+            "musicBy": [],
+            "name": [
+                {
+                    "@language": "en",
+                    "@value": "Force of Nature"
+                }
+            ],
+            "producer": [],
+            "productionCompany": [],
+            "sameAs": "https://www.fandango.com/force-of-nature-223191/movie-overview"
+        }
+    ],
+    "dateModified": "2020-07-15 18:15:02Z",
+    "name": "Fandango Movies Feed"
+}

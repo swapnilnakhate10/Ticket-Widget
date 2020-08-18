@@ -1,0 +1,26 @@
+{
+  "name": "fandango_banner_adv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "alasql": "^0.6.3",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "cron": "^1.8.2",
+    "express": "^4.17.1",
+    "fetch": "^1.1.0",
+    "log4js": "^6.3.0",
+    "mongoose": "^5.10.0",
+    "multer": "^1.4.2",
+    "redis": "^3.0.2"
+  }
+}
