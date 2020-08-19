@@ -24,6 +24,76 @@ async function banner_list(callback) {
   callback(null, response);
 };
 
+function syncFandangoData() {
+  // console.log('You will see this message every second');
+  let allMoviesProimse = getAllMovies();
+  let allMovieTheatersProimse = getAllMovieTheaters();
+  let allScreeningEventsProimse = getAllScreeningEvents();
+  Promise.all([allMoviesProimse, allMovieTheatersProimse, allScreeningEventsProimse]).then((values) => {
+    console.log("Data recieved from all API's");
+    console.log(values.length);
+    let allMovies = values[0];
+    let allMovieTheaters = values[1];
+    let allScreeningEvents = values[2];
+    convertFandangoData(allMovies, allMovieTheaters, allScreeningEvents);
+  })
+}
+
+async function convertFandangoData(allMovies, allMovieTheaters, allScreeningEvents) {
+  let fandangoData = [];
+  for(let movieTheater of allMovieTheaters) {
+    let theaterData = new TheaterDataModel();
+    theaterData.name = movieTheater.name;
+    theaterData.telephone = movieTheater.telephone;
+    theaterData.addressCountry = movieTheater.address.addressCountry;
+    theaterData.addressLocality = movieTheater.address.addressLocality;
+    theaterData.addressRegion = movieTheater.address.addressRegion;
+    theaterData.postalCode = movieTheater.address.postalCode;
+    theaterData.streetAddress = movieTheater.address.streetAddress;
+    theaterData.theaterId = movieTheater['@id'];
+
+    theaterData.showtimes = getScreeningEventsOfTheater(theaterData.theaterId, allScreeningEvents, allMovies);
+    fandangoData.push(theaterData);
+  }
+  await TheaterDataModel.insertMany(fandangoData).then(function() { 
+    console.log("Theater data saved count : "+fandangoData.length);
+  }).catch(function(error) { 
+    console.log("Error Saving Theater data");
+    console.log(error);
+  });
+}
+
+function getScreeningEventsOfTheater(theaterId, allScreeningEvents, allMovies) {
+  // console.log('movieTheater Id : '+theaterId);
+  let result = allScreeningEvents.filter((screeningEvent) => {
+    return screeningEvent.location['@id'] == theaterId;
+  });
+  let screeningEventsOfTheater = [];
+  result.forEach(event => {
+    let showTime = {
+      dateTime: "",
+      movieName : "",
+      moviePosters : [],
+      movieLink: ""
+    };
+    showTime.dateTime = event.startDate;
+    showTime.movieLink = event.workPerformed['@id'];
+    let moviesList = allMovies.filter((movie) => {
+      return movie['@id'] == showTime.movieLink;
+    });
+    if(moviesList && moviesList.length == 1 ) {
+      let movieDetails = moviesList[0];
+      showTime.movieName = movieDetails.name[0]['@value'];
+      showTime.moviePosters = movieDetails.image;
+      screeningEventsOfTheater.push(showTime);
+    } else {
+      // console.log("Count for Movie : "+showTime.movieLink+' is '+moviesList.length);
+    }
+  });
+  // console.log('Showtimes for '+theaterId+' : '+screeningEventsOfTheater.length);
+  return screeningEventsOfTheater;
+}
+
 async function getAllMovies() {
   return new Promise((resolve, reject) => {
     fetchUrl("https://jsonplaceholder.typicode.com/posts", function(error, meta, body){
