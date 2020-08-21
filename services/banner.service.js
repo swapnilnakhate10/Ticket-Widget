@@ -2,7 +2,6 @@ let express = require('express');
 var fetchUrl = require("fetch").fetchUrl;
 let CronJob = require('cron').CronJob;
 let alasql = require('alasql');
-const nodemailer = require("nodemailer");
 let config = require('./../config/config.json');
 let moviesJSON = require('./../config/Movie.json');
 let movieTheaterJSON = require('./../config/MovieTheater.json');
@@ -11,6 +10,7 @@ let MovieModel = require('../models/movie.model');
 let TheaterModel = require('../models/theater.model');
 let EventsModel = require('../models/events.model');
 let TheaterDataModel = require('../models/theaterData.model');
+let bannerService = require('./mail.service');
 
 let first_job = new CronJob(config.first_cron_job, syncFandangoData);
 let second_job = new CronJob(config.second_cron_job, syncFandangoData);
@@ -19,50 +19,9 @@ first_job.start();
 second_job.start();
 
 module.exports = {
-    banner_list : banner_list,
-    getAllMovies: getAllMovies,
-    syncFandangoData : syncFandangoData
+    syncFandangoData : syncFandangoData,
+    getShowTimes : getShowTimes
 };
-
-async function banner_list(callback) {
-  let response = await getAllMovies();
-  callback(null, response);
-};
-
-async function initNodeMailer(cronJobMesasge) {
-  let transporter = nodemailer.createTransport({
-    host: config.mailer.host,
-    port: config.mailer.port,
-    secure: config.mailer.secureSSL,
-    auth: {
-      user: config.mailer.username,
-      pass: config.mailer.password
-    }
-  });
-
-  transporter.verify(function(error, success) {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log("Server is ready to take our messages");
-      let options = {
-        from: "fandangoCronJob@yopmail.com",
-        to: config.notificationMailId,
-        subject: "Fandango Cron Job",
-        text: cronJobMesasge
-      };
-      transporter.sendMail(options, (err, info) => {
-        if(err) {
-          console.error('Error sending mail : '+err);      
-        } else {
-          console.log('Mail sent succesfully');
-          console.log(info.envelope);
-          console.log(info.messageId);
-        }
-      });    
-    }
-  });
-}
 
 function syncFandangoData() {
   // console.log('You will see this message every second');
@@ -100,10 +59,12 @@ async function convertFandangoData(allMovies, allMovieTheaters, allScreeningEven
   console.log(removedData);
   await TheaterDataModel.insertMany(fandangoData).then(function() { 
     console.log("Theater data saved count : "+fandangoData.length);
-    initNodeMailer("CronJob executed successfully.");
-  }).catch(function(error) { 
-    console.log("Error Saving Theater data");
-    initNodeMailer("Error for CronJob execution.");
+    let successMessage = "Success for CronJob execution.";
+    bannerService.sendMail(successMessage);
+  }).catch(function(error) {
+    let errorMessage = "Error for CronJob execution.";
+    bannerService.sendMail(errorMessage);
+    console.log(errorMessage);
     console.log(error);
   });
 }
@@ -193,13 +154,35 @@ async function getAllScreeningEvents() {
   });
 }
 
-async function saveEvents() {
-  let movie = new MovieModel({
-    name: "Bob goes sledding",
-    date: new Date()
-  });
-  movie.save(function (err) {
-    if (err) return handleError(err);
-  });
+async function getShowTimes(pincode, movieId, callback) {
+  let movieLink = 'https://www.fandango.com/movies/' + movieId;
+  let aggregateQuery = [
+    { 
+      $match: { postalCode : pincode }
+    },
+    { $unwind : "$showtimes" },
+    {
+      $match: { 'showtimes.movieLink' : movieLink }
+    },
+    {
+      $project: {
+        _id:1, 
+        name:1, 
+        telephone:1, 
+        addressCountry:1, 
+        addressLocality:1, 
+        addressRegion: 1, 
+        postalCode:1, 
+        streetAddress:1, 
+        theaterId:1,
+        movieName: '$showtimes.movieName',
+        movieTime: '$showtimes.dateTime',
+        movieLink: '$showtimes.movieLink',
+        moviePosters: '$showtimes.moviePosters'
+      }
+    }
+  ];
+  let showTimesList = await TheaterDataModel.aggregate(aggregateQuery);
+  callback(null, showTimesList);
 }
 

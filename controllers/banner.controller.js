@@ -2,19 +2,21 @@ let express = require('express');
 let bannerService = require('../services/banner.service');
 
 module.exports = {
-    banner_list : banner_list,
+    getNearbyShowTimes : getNearbyShowTimes,
     syncFandangoData : syncFandangoData
 };
 
-function banner_list(req, res) {
-  bannerService.banner_list((err, result) => {
+function getNearbyShowTimes(req, res) {
+  let zipcode = req.body.zipcode;
+  let movieId = req.body.movieId;
+  bannerService.getShowTimes(zipcode, movieId, (err, result) => {
     if(err) {
       res.status(500).send(err);
     } else {
       res.status(200).send(result);
     }
   });
-};
+}
 
 function syncFandangoData(req, res) {
   bannerService.syncFandangoData();
