@@ -2,6 +2,8 @@ let express = require('express');
 var fetchUrl = require("fetch").fetchUrl;
 let CronJob = require('cron').CronJob;
 let alasql = require('alasql');
+const nodemailer = require("nodemailer");
+let config = require('./../config/config.json');
 let moviesJSON = require('./../config/Movie.json');
 let movieTheaterJSON = require('./../config/MovieTheater.json');
 let screeningEventJSON = require('./../config/ScreeningEvent.json');
@@ -10,8 +12,11 @@ let TheaterModel = require('../models/theater.model');
 let EventsModel = require('../models/events.model');
 let TheaterDataModel = require('../models/theaterData.model');
 
-let job = new CronJob('* * 3 * *', syncFandangoData);
-job.start();
+let first_job = new CronJob(config.first_cron_job, syncFandangoData);
+let second_job = new CronJob(config.second_cron_job, syncFandangoData);
+
+first_job.start();
+second_job.start();
 
 module.exports = {
     banner_list : banner_list,
@@ -24,19 +29,54 @@ async function banner_list(callback) {
   callback(null, response);
 };
 
+async function initNodeMailer(cronJobMesasge) {
+  let transporter = nodemailer.createTransport({
+    host: config.mailer.host,
+    port: config.mailer.port,
+    secure: config.mailer.secureSSL,
+    auth: {
+      user: config.mailer.username,
+      pass: config.mailer.password
+    }
+  });
+
+  transporter.verify(function(error, success) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Server is ready to take our messages");
+      let options = {
+        from: "fandangoCronJob@yopmail.com",
+        to: config.notificationMailId,
+        subject: "Fandango Cron Job",
+        text: cronJobMesasge
+      };
+      transporter.sendMail(options, (err, info) => {
+        if(err) {
+          console.error('Error sending mail : '+err);      
+        } else {
+          console.log('Mail sent succesfully');
+          console.log(info.envelope);
+          console.log(info.messageId);
+        }
+      });    
+    }
+  });
+}
+
 function syncFandangoData() {
   // console.log('You will see this message every second');
   let allMoviesProimse = getAllMovies();
   let allMovieTheatersProimse = getAllMovieTheaters();
   let allScreeningEventsProimse = getAllScreeningEvents();
   Promise.all([allMoviesProimse, allMovieTheatersProimse, allScreeningEventsProimse]).then((values) => {
-    console.log("Data recieved from all API's");
+    console.log("Data received from all API's");
     console.log(values.length);
     let allMovies = values[0];
     let allMovieTheaters = values[1];
     let allScreeningEvents = values[2];
     convertFandangoData(allMovies, allMovieTheaters, allScreeningEvents);
-  })
+  });
 }
 
 async function convertFandangoData(allMovies, allMovieTheaters, allScreeningEvents) {
@@ -55,10 +95,15 @@ async function convertFandangoData(allMovies, allMovieTheaters, allScreeningEven
     theaterData.showtimes = getScreeningEventsOfTheater(theaterData.theaterId, allScreeningEvents, allMovies);
     fandangoData.push(theaterData);
   }
+  let removedData = await TheaterDataModel.deleteMany({});
+  console.log('Removed all Theater data : ');
+  console.log(removedData);
   await TheaterDataModel.insertMany(fandangoData).then(function() { 
     console.log("Theater data saved count : "+fandangoData.length);
+    initNodeMailer("CronJob executed successfully.");
   }).catch(function(error) { 
     console.log("Error Saving Theater data");
+    initNodeMailer("Error for CronJob execution.");
     console.log(error);
   });
 }
