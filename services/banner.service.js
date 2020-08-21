@@ -29,8 +29,7 @@ function syncFandangoData() {
   let allMovieTheatersProimse = getAllMovieTheaters();
   let allScreeningEventsProimse = getAllScreeningEvents();
   Promise.all([allMoviesProimse, allMovieTheatersProimse, allScreeningEventsProimse]).then((values) => {
-    console.log("Data received from all API's");
-    console.log(values.length);
+    console.log("Fandango received from all API's");
     let allMovies = values[0];
     let allMovieTheaters = values[1];
     let allScreeningEvents = values[2];
@@ -39,6 +38,7 @@ function syncFandangoData() {
 }
 
 async function convertFandangoData(allMovies, allMovieTheaters, allScreeningEvents) {
+  console.log("Converting Fandango data");
   let fandangoData = [];
   for(let movieTheater of allMovieTheaters) {
     let theaterData = new TheaterDataModel();
@@ -54,8 +54,9 @@ async function convertFandangoData(allMovies, allMovieTheaters, allScreeningEven
     theaterData.showtimes = getScreeningEventsOfTheater(theaterData.theaterId, allScreeningEvents, allMovies);
     fandangoData.push(theaterData);
   }
+  console.log("Succefully converted Fandango data");
   let removedData = await TheaterDataModel.deleteMany({});
-  console.log('Removed all Theater data : ');
+  console.log('Database flushed for Theater data');
   console.log(removedData);
   await TheaterDataModel.insertMany(fandangoData).then(function() { 
     console.log("Theater data saved count : "+fandangoData.length);
@@ -155,33 +156,62 @@ async function getAllScreeningEvents() {
 }
 
 async function getShowTimes(pincode, movieId, callback) {
-  let movieLink = 'https://www.fandango.com/movies/' + movieId;
-  let aggregateQuery = [
-    { 
-      $match: { postalCode : pincode }
-    },
-    { $unwind : "$showtimes" },
-    {
-      $match: { 'showtimes.movieLink' : movieLink }
-    },
-    {
-      $project: {
-        _id:1, 
-        name:1, 
-        telephone:1, 
-        addressCountry:1, 
-        addressLocality:1, 
-        addressRegion: 1, 
-        postalCode:1, 
-        streetAddress:1, 
-        theaterId:1,
-        movieName: '$showtimes.movieName',
-        movieTime: '$showtimes.dateTime',
-        movieLink: '$showtimes.movieLink',
-        moviePosters: '$showtimes.moviePosters'
+  console.log('Get show times initiated.');
+  let aggregateQuery = [];
+  if(movieId && movieId != "") {
+    let movieLink = 'https://www.fandango.com/movies/' + movieId;
+    aggregateQuery = [
+      { 
+        $match: { postalCode : pincode }
+      },
+      { $unwind : "$showtimes" },
+      {
+        $match: { 'showtimes.movieLink' : movieLink }
+      },
+      {
+        $project: {
+          _id:0, 
+          name:1, 
+          telephone:1, 
+          addressCountry:1, 
+          addressLocality:1, 
+          addressRegion: 1, 
+          postalCode:1, 
+          streetAddress:1, 
+          theaterId:1,
+          movieName: '$showtimes.movieName',
+          movieTime: '$showtimes.dateTime',
+          movieLink: '$showtimes.movieLink',
+          moviePosters: '$showtimes.moviePosters'
+        }
       }
-    }
-  ];
+    ];
+  } else {
+    aggregateQuery = [
+      { 
+        $match: { postalCode : pincode }
+      },
+      { $unwind : "$showtimes" },
+      {
+        $project: {
+          _id:0, 
+          name:1, 
+          telephone:1, 
+          addressCountry:1, 
+          addressLocality:1, 
+          addressRegion: 1, 
+          postalCode:1, 
+          streetAddress:1, 
+          theaterId:1,
+          movieName: '$showtimes.movieName',
+          movieTime: '$showtimes.dateTime',
+          movieLink: '$showtimes.movieLink',
+          moviePosters: '$showtimes.moviePosters'
+        }
+      }
+    ];
+  }
+  
   let showTimesList = await TheaterDataModel.aggregate(aggregateQuery);
   callback(null, showTimesList);
 }
