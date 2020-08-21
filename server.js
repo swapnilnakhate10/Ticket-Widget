@@ -6,11 +6,16 @@ const mongoose = require('mongoose');
 const cors = require('cors')
 let app = express();
 const router = express.Router();
-const port = 8080;
 let indexRouter = require('./routes/index');
 let log4js = require("log4js");
+const config = require('config');
 const logger = log4js.getLogger("Server");
-logger.level = "debug";
+let fileName = "logs/"+ new Date().toDateString() +"_fandango_logs.log";
+log4js.configure({
+  appenders: { fandango: { type: config.get('logger.type'), filename: fileName } },
+  categories: { default: { appenders: ["fandango"], level: config.get('logger.level') } }
+});
+let port = config.get('serverPort');
 
 app.use(compression({filter: shouldCompress}))
 
@@ -27,15 +32,23 @@ app.use(cors());
 
 app.use('/', indexRouter);
 
-mongoose.connect('mongodb://localhost:27017/fandango', {
+let connectionString = 'mongodb://localhost:'+config.get('mongoDb.port')+'/'+ config.get('mongoDb.dbname');
+
+mongoose.connect(connectionString, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
 //Get the default connection
 let dbConnect = mongoose.connection;
 
+dbConnect.on('connected', () => {
+  logger.debug("Database Connected.");
+});
 //Bind connection to error event (to get notification of connection errors)
-dbConnect.on('error', console.error.bind(console, 'MongoDB connection error:'));
+dbConnect.on('error', (error) => {
+  logger.error("Error Database connection");
+  logger.error(error);
+});
 
 http.createServer(app).listen(port, function (err) {
   logger.debug("Server File Initiated");
@@ -43,3 +56,13 @@ http.createServer(app).listen(port, function (err) {
 });
   
 
+process.on('unhandledRejection', (reason, p) => {
+    logger.error('Unhandled Rejection at Reason : ');
+    logger.error(reason);
+    logger.error('Unhandled Rejection P : ');
+    logger.error(p);
+  }).on('uncaughtException', (err) => {
+    logger.error('Uncaught Exception thrown : ');
+    logger.error(err);
+    process.exit(1);
+});

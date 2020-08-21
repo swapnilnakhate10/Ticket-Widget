@@ -1,42 +1,46 @@
 const nodemailer = require("nodemailer");
-let config = require('./../config/config.json');
+const config = require('config');
+let log4js = require("log4js");
+
+const logger = log4js.getLogger("Mail Service");
+logger.debug("Mail Service Initiated");
 
 module.exports = {
     sendMail : sendMail
 };
 
 async function sendMail(cronJobMesasge) {
+  logger.debug("Inside sendMail");
+  let transporter = nodemailer.createTransport({
+    host: config.get('mailer.host'),
+    port: config.get('mailer.port'),
+    secure: config.get('mailer.secureSSL'),
+    auth: {
+      user: config.get('mailer.username'),
+      pass: config.get('mailer.password')
+    }
+  });
 
-    let transporter = nodemailer.createTransport({
-      host: config.mailer.host,
-      port: config.mailer.port,
-      secure: config.mailer.secureSSL,
-      auth: {
-        user: config.mailer.username,
-        pass: config.mailer.password
-      }
-    });
-
-    transporter.verify(function(error, success) {
-      if (error) {
-        console.log("Unable to verify Mailing Server : ");
-        console.log(error);
-      } else {
-        console.log("Server is ready to take our messages");
-        let options = {
-          from: "fandangoCronJob@yopmail.com",
-          to: config.notificationMailId,
-          subject: "Fandango Cron Job",
-          text: cronJobMesasge
-        };
-        transporter.sendMail(options, (err, info) => {
-          if(err) {
-            console.error('Error sending mail : '+err);
-          } else {
-            console.log('Mail sent succesfully');
-          }
-        });    
-      }
-    });
-  }
+  transporter.verify(function(error, success) {
+    if (error) {
+      logger.error("Unable to verify Mailing Server : ");
+      logger.error(error);
+    } else {
+      logger.debug("Server is ready to take our messages");
+      let options = {
+        from: "fandangoCronJob@yopmail.com",
+        to: config.get('notificationMailId'),
+        subject: "Fandango Cron Job",
+        text: cronJobMesasge
+      };
+      transporter.sendMail(options, (err, info) => {
+        if(err) {
+          logger.error('Error sending mail : '+err);
+        } else {
+          logger.debug('Mail sent succesfully');
+        }
+      });    
+    }
+  });
+}
   

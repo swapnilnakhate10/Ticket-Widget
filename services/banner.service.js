@@ -1,19 +1,19 @@
 let express = require('express');
 var fetchUrl = require("fetch").fetchUrl;
 let CronJob = require('cron').CronJob;
-let alasql = require('alasql');
-let config = require('./../config/config.json');
+const config = require('config');
+let log4js = require("log4js");
 let moviesJSON = require('./../config/Movie.json');
 let movieTheaterJSON = require('./../config/MovieTheater.json');
 let screeningEventJSON = require('./../config/ScreeningEvent.json');
-let MovieModel = require('../models/movie.model');
-let TheaterModel = require('../models/theater.model');
-let EventsModel = require('../models/events.model');
 let TheaterDataModel = require('../models/theaterData.model');
 let bannerService = require('./mail.service');
 
-let first_job = new CronJob(config.first_cron_job, syncFandangoData);
-let second_job = new CronJob(config.second_cron_job, syncFandangoData);
+const logger = log4js.getLogger("Banner Service");
+logger.debug("Banner Service Initiated");
+
+let first_job = new CronJob(config.get('first_cron_job'), syncFandangoData);
+let second_job = new CronJob(config.get('second_cron_job'), syncFandangoData);
 
 first_job.start();
 second_job.start();
@@ -24,12 +24,12 @@ module.exports = {
 };
 
 function syncFandangoData() {
-  // console.log('You will see this message every second');
+  logger.debug("================== Sync Fandango Data Initiated ====================");
   let allMoviesProimse = getAllMovies();
   let allMovieTheatersProimse = getAllMovieTheaters();
   let allScreeningEventsProimse = getAllScreeningEvents();
   Promise.all([allMoviesProimse, allMovieTheatersProimse, allScreeningEventsProimse]).then((values) => {
-    console.log("Fandango received from all API's");
+    logger.debug("Fandango Data received from all API's");
     let allMovies = values[0];
     let allMovieTheaters = values[1];
     let allScreeningEvents = values[2];
@@ -38,7 +38,10 @@ function syncFandangoData() {
 }
 
 async function convertFandangoData(allMovies, allMovieTheaters, allScreeningEvents) {
-  console.log("Converting Fandango data");
+  logger.debug("Converting Fandango Data ==> ");
+  logger.debug("Movies : "+allMovies.length);
+  logger.debug("Theaters : "+allMovieTheaters.length);
+  logger.debug("Screening Events : "+allScreeningEvents.length);
   let fandangoData = [];
   for(let movieTheater of allMovieTheaters) {
     let theaterData = new TheaterDataModel();
@@ -54,24 +57,26 @@ async function convertFandangoData(allMovies, allMovieTheaters, allScreeningEven
     theaterData.showtimes = getScreeningEventsOfTheater(theaterData.theaterId, allScreeningEvents, allMovies);
     fandangoData.push(theaterData);
   }
-  console.log("Succefully converted Fandango data");
+  logger.debug("Succefully converted Fandango data");
   let removedData = await TheaterDataModel.deleteMany({});
-  console.log('Database flushed for Theater data');
-  console.log(removedData);
+  logger.debug('Database flushed for Theater data =>>');
+  logger.debug(removedData);
   await TheaterDataModel.insertMany(fandangoData).then(function() { 
-    console.log("Theater data saved count : "+fandangoData.length);
+    logger.debug("Theater data saved count : "+fandangoData.length);
+    logger.debug("================== Sync Fandango Data Ended ====================");
     let successMessage = "Success for CronJob execution.";
     bannerService.sendMail(successMessage);
   }).catch(function(error) {
     let errorMessage = "Error for CronJob execution.";
     bannerService.sendMail(errorMessage);
-    console.log(errorMessage);
-    console.log(error);
+    logger.error(errorMessage);
+    logger.error(error);
+    logger.debug("================== Sync Fandango Data Ended ====================");
   });
 }
 
 function getScreeningEventsOfTheater(theaterId, allScreeningEvents, allMovies) {
-  // console.log('movieTheater Id : '+theaterId);
+  // logger.debug('Inside getScreeningEventsOfTheater for Theater : ');
   let result = allScreeningEvents.filter((screeningEvent) => {
     return screeningEvent.location['@id'] == theaterId;
   });
@@ -83,7 +88,8 @@ function getScreeningEventsOfTheater(theaterId, allScreeningEvents, allMovies) {
       moviePosters : [],
       movieLink: ""
     };
-    showTime.dateTime = event.startDate;
+    showTime.dateTime = new Date(event.startDate.substring(0, 10));
+    showTime.timeSlot = event.startDate.substring(11, event.startDate.length);
     showTime.movieLink = event.workPerformed['@id'];
     let moviesList = allMovies.filter((movie) => {
       return movie['@id'] == showTime.movieLink;
@@ -97,7 +103,6 @@ function getScreeningEventsOfTheater(theaterId, allScreeningEvents, allMovies) {
       // console.log("Count for Movie : "+showTime.movieLink+' is '+moviesList.length);
     }
   });
-  // console.log('Showtimes for '+theaterId+' : '+screeningEventsOfTheater.length);
   return screeningEventsOfTheater;
 }
 
@@ -105,16 +110,18 @@ async function getAllMovies() {
   return new Promise((resolve, reject) => {
     fetchUrl("https://jsonplaceholder.typicode.com/posts", function(error, meta, body){
       if(error) {
+        logger.error("getAllMovies Error ==>");
+        logger.error(error);
         reject(error);
       } else {
         // let moviesList = body.toString();
         let moviesList = moviesJSON.dataFeedElement;
-        console.log('Movies Count :: '+moviesList.length);
+        logger.debug('Movie Count :: '+moviesList.length);
         resolve(moviesList);
       }
     });  
   }).catch((e) => {
-    console.log('Caugth exception :: '+e);
+    logger.error('getAllMovies Caugth exception :: '+e);
     Promise.reject(e);
   });
 }
@@ -123,16 +130,18 @@ async function getAllMovieTheaters() {
   return new Promise((resolve, reject) => {
     fetchUrl("https://jsonplaceholder.typicode.com/posts", function(error, meta, body){
       if(error) {
+        logger.error("getAllMovieTheaters Error ==>");
+        logger.error(error);
         reject(error);
       } else {
         // let movieTheatersList = body.toString();
         let movieTheatersList = movieTheaterJSON.dataFeedElement;
-        console.log('Movie Theaters Count :: '+movieTheatersList.length);
+        logger.debug('Movie Theaters Count :: '+movieTheatersList.length);
         resolve(movieTheatersList);
       }
     });  
   }).catch((e) => {
-    console.log('Caugth exception :: '+e);
+    logger.error('getAllMovieTheaters Caugth exception :: '+e);
     Promise.reject(e);
   });
 }
@@ -141,22 +150,24 @@ async function getAllScreeningEvents() {
   return new Promise((resolve, reject) => {
     fetchUrl("https://jsonplaceholder.typicode.com/posts", function(error, meta, body){
       if(error) {
+        logger.error("getAllScreeningEvents Error ==> ");
+        logger.error(error);
         reject(error);
       } else {
         // let screeningEventsList = body.toString();
         let screeningEventsList = screeningEventJSON;
-        console.log('Screening Events Count :: '+screeningEventsList.length);
+        logger.debug('Screening Events Count :: '+screeningEventsList.length);
         resolve(screeningEventsList);
       }
     });  
   }).catch((e) => {
-    console.log('Caugth exception :: '+e);
+    logger.error('GetAllScreeningEvents Caugth exception :: '+e);
     Promise.reject(e);
   });
 }
 
 async function getShowTimes(pincode, movieId, callback) {
-  console.log('Get show times initiated.');
+  logger.debug('Get show times initiated.');
   let aggregateQuery = [];
   if(movieId && movieId != "") {
     let movieLink = 'https://www.fandango.com/movies/' + movieId;
@@ -166,7 +177,7 @@ async function getShowTimes(pincode, movieId, callback) {
       },
       { $unwind : "$showtimes" },
       {
-        $match: { 'showtimes.movieLink' : movieLink }
+        $match: { 'showtimes.movieLink' : movieLink, "showtimes.dateTime" : {  "$gte" : new Date() } }
       },
       {
         $project: {
@@ -181,6 +192,7 @@ async function getShowTimes(pincode, movieId, callback) {
           theaterId:1,
           movieName: '$showtimes.movieName',
           movieTime: '$showtimes.dateTime',
+          timeSlot: '$showtimes.timeSlot',
           movieLink: '$showtimes.movieLink',
           moviePosters: '$showtimes.moviePosters'
         }
@@ -192,6 +204,9 @@ async function getShowTimes(pincode, movieId, callback) {
         $match: { postalCode : pincode }
       },
       { $unwind : "$showtimes" },
+      {
+        $match: { "showtimes.dateTime" : {  "$gte" : new Date() } }
+      },
       {
         $project: {
           _id:0, 
@@ -213,6 +228,13 @@ async function getShowTimes(pincode, movieId, callback) {
   }
   
   let showTimesList = await TheaterDataModel.aggregate(aggregateQuery);
-  callback(null, showTimesList);
+  if(showTimesList && showTimesList.length && showTimesList.length > -1) {
+    logger.debug('Returning response for Get show times : '+showTimesList.length);
+    callback(null, showTimesList);
+  } else {
+    logger.error('Error for Get show times : ');
+    logger.error(showTimesList);
+    callback(showTimesList, null);
+  }
 }
 

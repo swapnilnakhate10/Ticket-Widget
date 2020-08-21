@@ -1,0 +1,21 @@
+{
+    "serverPort" : 8080,
+    "mongoDb" : {
+        "port" : 27017,
+        "dbname" : "fandango"
+    },
+    "first_cron_job": "0 0 5 * * *",
+    "second_cron_job": "0 0 17 * * *",
+    "logger" : {
+        "type" : "file",
+        "level" : "debug"
+    },
+    "mailer" : {
+        "host" : "smtp.gmail.com",
+        "port" : 587,
+        "secureSSL" : false,
+        "username" : "swapnil.nakhate@yopmail.com",
+        "password" : "Pa$$w0rd"
+    },
+    "notificationMailId" : "sahilsingla905@yopmail.com"
+}
