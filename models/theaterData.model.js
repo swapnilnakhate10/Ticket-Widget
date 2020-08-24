@@ -14,16 +14,19 @@ const theaterSchema = new Schema({
         required : true
     },
     addressCountry : {
-        type: String
+        type: String,
+        required : true
     },
     addressLocality : {
         type: String
     },
     addressRegion : {
-        type: String
+        type: String,
+        required : true
     },
     postalCode : {
-        type: String
+        type: String,
+        required : true
     },
     streetAddress : {
         type: String

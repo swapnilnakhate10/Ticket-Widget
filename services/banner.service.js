@@ -59,14 +59,19 @@ async function convertFandangoData(allMovies, allMovieTheaters, allScreeningEven
     theaterData.uuid = uniqueId;
 
     theaterData.showtimes = getScreeningEventsOfTheater(theaterData.theaterId, allScreeningEvents, allMovies);
-    await theaterData.save();
+    await theaterData.save((err, user) => {
+      if (err) {
+        logger.error('Unable to save Theater Data : '+theaterData.name +' : '+theaterData.theaterId);
+        logger.error(err);
+      }
+  });
     // fandangoData.push(theaterData);
   }
   logger.debug("Succefully converted Fandango data");
   logger.debug("================== Sync Fandango Data Ended ====================");
-  let successMessage = "Success for CronJob execution.";
   await flushOldFandangoData(uniqueId);
-  bannerService.sendMail(successMessage);
+  let successMessage = "Success for CronJob execution.";
+  // bannerService.sendMail(successMessage);
 }
 
 async function flushOldFandangoData(uniqueId) {
