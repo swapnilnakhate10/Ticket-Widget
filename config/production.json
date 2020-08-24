@@ -17,5 +17,10 @@
         "username" : "swapnil.nakhate@yopmail.com",
         "password" : "Pa$$w0rd"
     },
+    "fandangoAPI" : {
+        "moviesAPI" : "https://jsonplaceholder.typicode.com/posts",
+        "theatersAPI" : "https://jsonplaceholder.typicode.com/posts",
+        "eventsAPI" : "https://jsonplaceholder.typicode.com/posts"
+    },
     "notificationMailId" : "sahilsingla905@yopmail.com"
 }

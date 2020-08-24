@@ -13,4 +13,8 @@ router.get('/sync', bannerController.syncFandangoData);
 
 router.post('/showtimes', bannerInterceptor.validateGetShowTimes, bannerController.getNearbyShowTimes);
 
+router.post('/test', (req, res) => {
+    res.send(req.body);
+});
+
 module.exports = router;

@@ -30,6 +30,16 @@ app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 app.use(cors());
 
+app.use((req, res, next) => { 
+  res.setHeader("Access-Control-Allow-Origin","*"); 
+  res.setHeader("Access-Control-Allow-Methods", "PUT,GET,POST,PATCH"); 
+  res.setHeader('Access-Control-Allow-Headers','X-Requested-With,content-type,Origin,Accept,Authorization'); 
+  res.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); 
+  res.setHeader("Pragma", "no-cache"); 
+  res.setHeader("Expires", "0"); 
+  next();
+});
+
 app.use('/', indexRouter);
 
 let connectionString = 'mongodb://localhost:'+config.get('mongoDb.port')+'/'+ config.get('mongoDb.dbname');
@@ -59,7 +69,7 @@ http.createServer(app).listen(port, function (err) {
 process.on('unhandledRejection', (reason, p) => {
     logger.error('Unhandled Rejection at Reason : ');
     logger.error(reason);
-    logger.error('Unhandled Rejection P : ');
+    logger.error('Unhandled Rejection for Promise : ');
     logger.error(p);
   }).on('uncaughtException', (err) => {
     logger.error('Uncaught Exception thrown : ');

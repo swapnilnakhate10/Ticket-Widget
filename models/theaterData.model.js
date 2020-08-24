@@ -28,6 +28,10 @@ const theaterSchema = new Schema({
     streetAddress : {
         type: String
     },
+    uuid : {
+        type: String,
+        required : true
+    },
     showtimes : {
         type: Array
     }
