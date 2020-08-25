@@ -96,7 +96,10 @@ function getScreeningEventsOfTheater(theaterId, allScreeningEvents, allMovies) {
     showTime.dateTime["local"] = event.startDate;
     let eventDate = event.startDate.substring(0, 10);
     showTime.eventDate = new Date(eventDate);
-    showTime.links.push({ href : eventId });
+    let allOffersLink = event.offers;
+    for(let offer of allOffersLink) {
+      showTime.links.push({ href : offer.url });
+    }
     showTime.movieId = eventId;
 
     let moviesList = allMovies.filter((movie) => {
@@ -191,7 +194,7 @@ async function getShowTimes(pincode, movieId, callback) {
         $match: {
           'postalCode' : pincode,
           'showtimes.movieId' : movieLinkId,
-		      "showtimes.eventDate" : {  "$gte" : new Date() }
+		      'showtimes.eventDate' : {  "$gte" : new Date() }
         }
       },
       {
@@ -212,7 +215,7 @@ async function getShowTimes(pincode, movieId, callback) {
       {
         $match: {
           'postalCode' : pincode,
-		      "showtimes.eventDate" : {  "$gte" : new Date() }
+          'showtimes.eventDate' : {  "$gte" : new Date() }
         }
       },
       {
