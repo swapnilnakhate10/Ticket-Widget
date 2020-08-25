@@ -223,12 +223,14 @@ async function getShowTimes(pincode, movieId, callback) {
           showtimes: 1,
           name : 1,
           _id: 1
+        }
       }
-    }];
+    ];
   }
   
   let showTimesList = await TheaterDataModel.aggregate(aggregateQuery);
-  if(showTimesList && showTimesList.length && showTimesList.length > -1) {
+
+  if(showTimesList && showTimesList.length && showTimesList.length > 0) {
     logger.debug('Returning response for Get show times : '+showTimesList.length);
     callback(null, showTimesList);
   } else {
